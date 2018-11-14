@@ -2,10 +2,9 @@ const autoprefixer = require('autoprefixer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
-  entry: './index.js',
-
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'main.[hash:6].js'
@@ -57,7 +56,9 @@ module.exports = {
       mobile: true,
       lang: 'en-US',
       title: 'Verupt'
-    })
+    }),
+
+    new VueLoaderPlugin()
   ],
 
   devServer: {
